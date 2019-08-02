@@ -1,0 +1,9 @@
+base:测试方法目录
+bin：运行文件目录
+config：配置文件目录
+data：存放测试数据
+logs：存放测试日志
+report：存放测试报告文件
+page：公共基类目录
+tests：测试用例目录
+utils：公共方法文件目录
