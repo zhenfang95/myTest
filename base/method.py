@@ -16,7 +16,7 @@ class Method:
 		self.excel=OperationExcel()
 		self.log=MyLog()
 
-	def post(self,row,data):
+	def post(self,row,data=None):
 		try:
 			r=requests.post(
 				url=self.excel.getUrl(row),
@@ -28,8 +28,11 @@ class Method:
 			self.log.errorLog('接口请求发生未知的错误,原因：%s'%e)
 			raise  RuntimeError('接口请求发生未知的错误')
 
-	def get(self,url,params=None):
-		r=requests.get(url=url,params=params,headers=getHeadersValue(),timeout=6)
+	def get(self,row,params=None):
+		r=requests.get(url=self.excel.getUrl(row),
+					params=params,
+					headers=getHeadersValue(),
+					timeout=6)
 		return r
 
 	def method(self,row,params=None):

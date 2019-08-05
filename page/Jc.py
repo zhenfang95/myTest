@@ -1,7 +1,7 @@
 #!/use/bin/env python
 #coding:utf-8
 
-import  json
+import json
 from utils.public import *
 from utils.operationJson import  OperationJson
 from utils.operationExcel import  OperationExcel
@@ -34,9 +34,10 @@ def getHeadersInfo():
 	return headers
 
 def getUrl():
+	'''当相同url存在多个参数的处理方法'''
 	listUrl=[]
 	for item in getSessionId():
-		url='https://www.lagou.com/jobs/{0}.html'.format(item)
+		url='https://www.xxx.com/xxx/{0}.html'.format(item)
 		listUrl.append(url)
 	return listUrl
 

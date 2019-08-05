@@ -48,7 +48,7 @@ class Runner:
 		#定义邮件内容
 		msg = MIMEMultipart()
 		body = MIMEText(content, _subtype='plain', _charset='utf-8')
-		msg['Subject'] = "自动化测试报告"
+		msg['Subject'] = "接口自动化测试报告"
 		msg["from"] = sender
 		msg["to"] = psw
 		msg.attach(body)
