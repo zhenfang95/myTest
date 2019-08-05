@@ -1,7 +1,5 @@
 #!/use/bin/env python
-#coding:utf-8 
-
-#Author:WuYa
+#coding:utf-8
 
 class ExcelVariable:
 	caseID=0

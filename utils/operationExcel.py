@@ -1,7 +1,5 @@
 #!/use/bin/env python
-#coding:utf-8 
-
-#Author:WuYa
+#coding:utf-8
 
 import xlrd
 from xlutils.copy import copy
@@ -50,10 +48,11 @@ class OperationExcel:
 	def writeResult(self,row,content):
 		'''测试结果写到文件中'''
 		col=getResult()
-		work =xlrd.open_workbook(data_dir('data','data.xls'))
-		old_content = copy(work)
-		ws = old_content.get_sheet(0)
-		ws.write(row,col,content)
+		work =xlrd.open_workbook(data_dir('data','data.xls'))  #打开表
+		old_content = copy(work)     #利用xlutils.copy下的copy函数复制
+		ws = old_content.get_sheet(0)   #获取表单0
+		ws.write(row,col,content)     ##改变（row,col）的值
+		old_content.save(data_dir("data","data.xls"))   #保存文件
 
 	def run_success_result(self):
 		'''获取执行成功的用例数'''
@@ -66,7 +65,7 @@ class OperationExcel:
 
 	def run_fail_result(self):
 		'''获取执行失败的用例数'''
-		return int((self.get_rows()-1)-self.run_success_result())
+		return int((self.get_rows()-1)-self.run_success_result())  #总数减去成功数
 
 	def run_pass_rate(self):
 		'''测试结果通过率'''
@@ -84,4 +83,4 @@ class OperationExcel:
 		return row
 
 # p=OperationExcel()
-# print(p.get_request_data(6))
+# print(p.run_success_result())

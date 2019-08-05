@@ -1,7 +1,5 @@
 #!/use/bin/env python
-#coding:utf-8 
-
-#Author:WuYa
+#coding:utf-8
 
 import requests
 from utils.excel_data import *
