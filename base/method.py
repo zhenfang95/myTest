@@ -35,12 +35,12 @@ class Method:
 					timeout=6)
 		return r
 
-	def method(self,row,params=None):
+	def method(self,row,data=None,params=None):
 		method=self.excel.getMethod(row)
 		if method == 'post':
 			r=requests.post(
 				url=self.excel.getUrl(row),
-				data=self.operationJson.getRequestsData(row),
+				data=data,
 				headers=getHeadersInfo(),
 				timeout=6)
 			return r

@@ -41,5 +41,10 @@ def getUrl():
 		listUrl.append(url)
 	return listUrl
 
+def setRelevance(row,orderSn):
+	'''对有关联的参数重新赋值'''
+	dict1=json.loads(operationJson.getRequestsData(row))
+	dict1['orderSn']=orderSn
+	return dict1
 
 
