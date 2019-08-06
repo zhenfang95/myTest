@@ -76,7 +76,7 @@ class Runner:
 			self.excel.run_fail_result(),
 			self.excel.run_pass_rate())
 		#邮箱配置
-		from config1 import readconfig
+		from config import readconfig
 		smtp_server=readconfig.smtp_server
 		sender=readconfig.sender
 		psw=readconfig.psw

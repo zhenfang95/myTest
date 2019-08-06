@@ -37,14 +37,28 @@ class UserTest(unittest.TestCase):
         r=self.obj.method(14,data=self.operJson.getRequestsData(14))
         self.isContent(r,14)
         self.excel.writeResult(14,'pass')
-        order_sn=re.findall('order_sn":(.+?),"',r.text)    #利用正则表达式提取订单编号
-        return order_sn[0]
+        order_sn=re.findall('order_sn":"(.+?)","',r.text)      #利用正则表达式提取所有订单编号
+        writeDatafile(fileName='orderId.md',content=json.dumps(order_sn)) #序列化转为字符串写入
 
     def test_user_04(self):
-        '''订单详情'''
-        r=self.obj.method(15,data=setRelevance(row=15,orderSn=eval(self.test_user_03())))  #eval-->把字符串转为字典
-        self.isContent(r,15)
+        '''订单详情页验证'''
+        #利用循环依次取出每个订单号
+        for i in range(len(getOrdersn())):
+            r=self.obj.method(15,data=setRelevance(row=15,orderSn=getOrdersn()[i]))
+            self.isContent(r,15)
         self.excel.writeResult(15,'pass')
+
+    def test_user_05(self):
+        '''电子票夹验证'''
+        r=self.obj.method(16)
+        self.isContent(r,16)
+        self.excel.writeResult(16,'pass')
+
+    def test_user_06(self):
+        '''我的卡包列表验证'''
+        r=self.obj.method(17)
+        self.isContent(r,17)
+        self.excel.writeResult(17,'pass')
 
 if __name__ == "__main__":
     unittest.main()

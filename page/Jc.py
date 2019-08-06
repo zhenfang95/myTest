@@ -17,13 +17,13 @@ def setSo(username="13097888019",password=123456):
 	dici1['password']=password
 	return dici1
 
-def writeSessionId(content):
-	'''把sessionid写入文件中'''
-	with open(data_dir(fileName='sessionid.md'),'w') as f:
+def writeDatafile(fileName,content):
+	'''获取的动态参数写入文件中'''
+	with open(data_dir(fileName=fileName),'w') as f:
 		f.write(content)
 
 def getSessionId():
-	'''获取sessionid'''
+	'''读取session_id'''
 	with open(data_dir(fileName='sessionid.md'),'r') as f:
 		return f.read()
 
@@ -33,18 +33,21 @@ def getHeadersInfo():
 	headers['AUTHORIZATION']=getSessionId()
 	return headers
 
-def getUrl():
-	'''当相同url存在多个参数的处理方法'''
-	listUrl=[]
-	for item in getSessionId():
-		url='https://www.xxx.com/xxx/{0}.html'.format(item)
-		listUrl.append(url)
-	return listUrl
-
 def setRelevance(row,orderSn):
 	'''对有关联的参数重新赋值'''
 	dict1=json.loads(operationJson.getRequestsData(row))
 	dict1['orderSn']=orderSn
 	return dict1
 
+def getOrderId():
+	'''读取订单编号'''
+	with open(data_dir(fileName='orderId.md'),'r') as f:
+		return f.read()
 
+def getOrdersn():
+	'''订单号提取处理'''
+	list1=[]
+	data=json.loads(getOrderId())  #反序列化把字符串转为列表
+	for i in data:
+		list1.append(i)
+	return list1

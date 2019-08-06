@@ -35,7 +35,8 @@ class LoginTest(unittest.TestCase):
 		self.execl.writeResult(1,'pass')   #测试结果写到excel
 		self.log.infoLog('测试结果写入excel表格成功')
 		#cookies= requests.utils.dict_from_cookiejar(r.cookies)  #把cookies转为字典类型
-		writeSessionId(r.cookies['juooo_sessionid'])  #提取sessionid
+		#提取sessionid并写入文件中
+		writeDatafile(fileName='sessionid.md',content=r.cookies['juooo_sessionid'])
 		self.log.infoLog('提取sessionid成功，sessionid为：%s'%r.cookies['juooo_sessionid'])
 
 	def test_login_02(self):
