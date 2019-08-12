@@ -18,7 +18,7 @@ class Runner:
 	def getSuite(self):
 		'''获取要执行的测试套件'''
 		suite = unittest.TestLoader().discover(
-			start_dir=sys.path.append(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'tests')),
+			start_dir=os.path.join(os.path.dirname(os.path.dirname(__file__)), 'tests'),
 			pattern='test_*.py',
 			top_level_dir=None)
 		return suite
@@ -30,7 +30,9 @@ class Runner:
 
 	def getRun(self):
 		'''生成测试报告'''
-		filename=os.path.join(os.path.dirname(os.path.dirname(__file__)),'report',self.getNowtime()+'.html')
+		report = str(os.path.dirname(os.path.dirname(__file__)) + '\\report')
+		report_path = sys.path.append(report)
+		filename=os.path.join(report_path,self.getNowtime()+'.html')
 		fp=open(filename,'wb')
 		runner=HTMLTestRunner.HTMLTestRunner(stream=fp,verbosity=2,title='自动化测试报告',description='接口自动化测试')
 		return runner
@@ -42,8 +44,10 @@ class Runner:
 		:param receiver:接受邮件的人
 		:param content:邮件内容
 		'''
+		report = str(os.path.dirname(os.path.dirname(__file__)) + '\\report')
+		report_path = sys.path.append(report)
 		#找到生成最新报告的文件
-		file_path=os.path.join(os.path.dirname(os.path.dirname(__file__)),'report')
+		file_path=os.path.join(report_path)
 		lists=os.listdir(file_path)
 		report_path=os.path.join(file_path,lists[-1])
 
