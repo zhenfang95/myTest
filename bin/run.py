@@ -1,5 +1,7 @@
 #!/use/bin/env python
 #coding:utf-8
+import sys
+sys.path.append("E:\\install\\jenkings\\workspace\\api_github\\")
 
 import unittest
 import os,time
