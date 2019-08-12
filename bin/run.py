@@ -31,8 +31,7 @@ class Runner:
 	def getRun(self):
 		'''生成测试报告'''
 		filename=os.path.join(os.path.dirname(os.path.dirname(__file__)),'report',self.getNowtime()+'.html')
-		ff=sys.path.append(filename)
-		fp=open(ff,'wb')
+		fp=open(filename,'wb')
 		runner=HTMLTestRunner.HTMLTestRunner(stream=fp,verbosity=2,title='自动化测试报告',description='接口自动化测试')
 		return runner
 
@@ -45,9 +44,8 @@ class Runner:
 		'''
 		#找到生成最新报告的文件
 		file_path=os.path.join(os.path.dirname(os.path.dirname(__file__)),'report')
-		ff1=sys.path.append(file_path)
-		lists=os.listdir(ff1)
-		report_path=os.path.join(ff1,lists[-1])
+		lists=os.listdir(file_path)
+		report_path=os.path.join(file_path,lists[-1])
 
 		#定义邮件内容
 		msg = MIMEMultipart()
