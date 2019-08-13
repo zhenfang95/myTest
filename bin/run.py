@@ -1,15 +1,17 @@
 #!/use/bin/env python
 #coding:utf-8
 import sys
-sys.path.append("E:\\install\\jenkings\\workspace\\api_github\\")
-
+#sys.path.append("E:\\install\\jenkings\\workspace\\api_github\\")
 import unittest
 import os,time
 import HTMLTestRunner
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+sys.path.append(os.path.dirname(os.path.dirname(__file__))+'\\utils')
 from utils.operationExcel import OperationExcel
+sys.path.append(os.path.dirname(os.path.dirname(__file__))+'\\tests')
+sys.path.append(os.path.dirname(os.path.dirname(__file__))+'\\report')
 
 class Runner:
 	def __init__(self):
@@ -87,5 +89,5 @@ class Runner:
 		self.send_mail(smtp_server,sender,psw,receiver,port,content)
 		print('Please wait while the statistics test results are sent in the mail')
 
-if __name__ == '__main__':
-	Runner().main_run()
+# if __name__ == '__main__':
+# 	Runner().main_run()
