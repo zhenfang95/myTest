@@ -4,7 +4,7 @@ import sys
 sys.path.append("E:\\install\\jenkings\\workspace\\api_github\\")
 import unittest
 import os,time
-import HTMLTestRunner
+from config import HTMLTestRunner
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
