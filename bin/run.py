@@ -89,5 +89,5 @@ class Runner:
 		self.send_mail(smtp_server,sender,psw,receiver,port,content)
 		print('Please wait while the statistics test results are sent in the mail')
 
-# if __name__ == '__main__':
-# 	Runner().main_run()
+if __name__ == '__main__':
+	Runner().main_run()
