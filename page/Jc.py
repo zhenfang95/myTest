@@ -10,7 +10,7 @@ from utils.excel_data import *
 operationJson=OperationJson()
 operationExcel=OperationExcel()
 
-def setSo(username="13097888019",password=123456):
+def setSo(username="15217043402",password=123456):
 	'''对请求的数据重新赋值'''
 	dici1=json.loads(operationJson.getRequestsData(1))
 	dici1['username']=username
