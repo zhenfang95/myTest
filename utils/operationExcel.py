@@ -76,11 +76,5 @@ class OperationExcel:
 			rate=str(int(self.run_success_result()/int(self.get_rows()-1)*100))+'%'
 		return rate
 
-	def getRows(self):
-		row=[]
-		for item in range(2,self.get_rows()):
-			row.append(item)
-		return row
-
 # p=OperationExcel()
 # print(p.run_success_result())

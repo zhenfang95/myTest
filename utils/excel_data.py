@@ -1,6 +1,6 @@
 #!/use/bin/env python
 #coding:utf-8
-
+'''封装excel表列的调用方法'''
 class ExcelVariable:
 	caseID=0
 	url=2
