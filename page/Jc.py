@@ -6,9 +6,11 @@ from utils.public import *
 from utils.operationJson import  OperationJson
 from utils.operationExcel import  OperationExcel
 from utils.excel_data import *
+from utils.operationLog import MyLog
 
 operationJson=OperationJson()
 operationExcel=OperationExcel()
+log=MyLog()
 
 def setSo(username="15217043402",password=123456):
 	'''对请求的数据重新赋值'''
@@ -19,8 +21,12 @@ def setSo(username="15217043402",password=123456):
 
 def writeDatafile(fileName,content):
 	'''获取的动态参数写入文件中'''
-	with open(data_dir(fileName=fileName),'w') as f:
-		f.write(content)
+	try:
+		with open(data_dir(fileName=fileName),'w') as f:
+			f.write(content)
+		log.infoLog('动态参数已写入%s文件中，参数值：%s'%(fileName,content))
+	except Exception as e:
+		log.errorLog('动态参数写入文件失败，%s'%e)
 
 def getSessionId():
 	'''读取session_id'''

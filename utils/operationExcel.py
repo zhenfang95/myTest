@@ -5,9 +5,12 @@ import xlrd
 from xlutils.copy import copy
 from utils.public import *
 from utils.excel_data import *
-
+from utils.operationLog import MyLog
 
 class OperationExcel:
+	def __init__(self):
+		self.log=MyLog()
+
 	def getExcel(self):
 		db=xlrd.open_workbook(data_dir('data','data.xls'))
 		sheet=db.sheet_by_index(0)
@@ -47,12 +50,17 @@ class OperationExcel:
 
 	def writeResult(self,row,content):
 		'''测试结果写到文件中'''
-		col=getResult()
-		work =xlrd.open_workbook(data_dir('data','data.xls'))  #打开表
-		old_content = copy(work)     #利用xlutils.copy下的copy函数复制
-		ws = old_content.get_sheet(0)   #获取表单0
-		ws.write(row,col,content)     ##改变（row,col）的值
-		old_content.save(data_dir("data","data.xls"))   #保存文件
+		try:
+			col=getResult()
+			work =xlrd.open_workbook(data_dir('data','data.xls'))  #打开表
+			old_content = copy(work)     #利用xlutils.copy下的copy函数复制
+			ws = old_content.get_sheet(0)   #获取表单0
+			ws.write(row,col,content)     ##改变（row,col）的值
+			old_content.save(data_dir("data","data.xls"))   #保存文件
+			self.log.infoLog('测试结果写入excel成功，写入结果：%s' %content)
+
+		except Exception as e:
+			self.log.errorLog('测试结果写入excel失败,原因：%s'%e)
 
 	def run_success_result(self):
 		'''获取执行成功的用例数'''

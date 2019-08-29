@@ -7,8 +7,8 @@ import logging
 
 class MyLog:
     def __init__(self):
-        title='TestLog'
-        day=time.strftime('%Y%m%d',time.localtime(time.time()))
+        title='接口自动化测试'
+        day=time.strftime('%Y%m%d%H%M',time.localtime(time.time()))
         path=os.path.dirname(os.path.dirname(__file__))+'\\logs'  #日志存放路径
         file=os.path.join(path,(day+'.log'))  #创建日志文件
         self.logger=logging.Logger(title)

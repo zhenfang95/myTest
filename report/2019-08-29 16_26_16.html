@@ -197,9 +197,9 @@
         
     <div class='page-header'>
         <h1>自动化测试报告</h1>
-    <p class='attribute'><strong>开始时间:</strong> 2019-08-05 16:39:29</p>
-<p class='attribute'><strong>运行时长:</strong> 0:00:01.493000</p>
-<p class='attribute'><strong>状态:</strong> 成功 13</p>
+    <p class='attribute'><strong>开始时间:</strong> 2019-08-29 16:26:16</p>
+<p class='attribute'><strong>运行时长:</strong> 0:00:02.286000</p>
+<p class='attribute'><strong>状态:</strong> 成功 11 失败 6</p>
 
     </div>
     <!--<div style="float: left;width:50%;"><p class='description'>接口自动化测试</p></div>-->
@@ -211,11 +211,11 @@
          <!-- <button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button> -->
         <!--<button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>-->
         <!--<button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>-->
-        <a class="btn btn-primary" onclick='javascript:showCase(0)'>概要 100.00% </a>
+        <a class="btn btn-primary" onclick='javascript:showCase(0)'>概要 64.71% </a>
         <a class="btn btn-warning" onclick='javascript:showCase(4)'>错误 0 </a>
-        <a class="btn btn-danger" onclick='javascript:showCase(1)'>失败  0 </a>
-        <a class="btn btn-success" onclick='javascript:showCase(2)'>成功 13 </a>
-        <a class="btn btn-info" onclick='javascript:showCase(3)'>所有 13 </a>  
+        <a class="btn btn-danger" onclick='javascript:showCase(1)'>失败  6 </a>
+        <a class="btn btn-success" onclick='javascript:showCase(2)'>成功 11 </a>
+        <a class="btn btn-info" onclick='javascript:showCase(3)'>所有 17 </a>  
 
     </div>
     <p></p>
@@ -238,11 +238,11 @@
             <th>错误截图</th>
         </tr>
         
-    <tr class='passClass'>
+    <tr class='failClass'>
         <td>test_home.HomeTest</td>
         <td>6</td>
-        <td>6</td>
-        <td>0</td>
+        <td>5</td>
+        <td>1</td>
         <td>0</td>
         <td><a href="javascript:showClassDetail('c1',6)">详情</a></td>
         <td>&nbsp;</td>
@@ -263,9 +263,28 @@
     <td colspan='5' align='center'>成功</td>
 </tr>
 
-<tr id='pt1.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_home_04: 获取首页楼层演出列表</div></td>
-    <td colspan='5' align='center'>成功</td>
+<tr id='ft1.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_home_04: 获取首页楼层演出列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        失败</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <pre>
+        ft1.4: Traceback (most recent call last):
+  File "E:\data\pythontestdata\pn1\tests\test_home.py", line 42, in test_home_04
+    self.isContent(r,9)
+  File "E:\data\pythontestdata\pn1\tests\test_home.py", line 19, in isContent
+    self.assertTrue(self.p.isContent(row=row,str2=r.text))
+AssertionError: False is not true
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt1.5' class='hiddenRow'>
@@ -278,11 +297,11 @@
     <td colspan='5' align='center'>成功</td>
 </tr>
 
-    <tr class='passClass'>
+    <tr class='failClass'>
         <td>test_login.LoginTest</td>
         <td>5</td>
-        <td>5</td>
-        <td>0</td>
+        <td>3</td>
+        <td>2</td>
         <td>0</td>
         <td><a href="javascript:showClassDetail('c2',5)">详情</a></td>
         <td>&nbsp;</td>
@@ -298,9 +317,28 @@
     <td colspan='5' align='center'>成功</td>
 </tr>
 
-<tr id='pt2.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_login_03: 错误的账号正确密码登录</div></td>
-    <td colspan='5' align='center'>成功</td>
+<tr id='ft2.3' class='none'>
+    <td class='failCase'><div class='testcase'>test_login_03: 错误的账号正确密码登录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.3')" >
+        失败</a>
+
+    <div id='div_ft2.3' class="popup_window">
+        <pre>
+        ft2.3: Traceback (most recent call last):
+  File "E:\data\pythontestdata\pn1\tests\test_login.py", line 43, in test_login_03
+    self.isContent(r,3)
+  File "E:\data\pythontestdata\pn1\tests\test_login.py", line 23, in isContent
+    self.assertTrue(self.p.isContent(row=row,str2=r.text))
+AssertionError: False is not true
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt2.4' class='hiddenRow'>
@@ -308,24 +346,62 @@
     <td colspan='5' align='center'>成功</td>
 </tr>
 
-<tr id='pt2.5' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_login_05: 账号密码为空登录</div></td>
-    <td colspan='5' align='center'>成功</td>
+<tr id='ft2.5' class='none'>
+    <td class='failCase'><div class='testcase'>test_login_05: 账号密码为空登录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.5')" >
+        失败</a>
+
+    <div id='div_ft2.5' class="popup_window">
+        <pre>
+        ft2.5: Traceback (most recent call last):
+  File "E:\data\pythontestdata\pn1\tests\test_login.py", line 55, in test_login_05
+    self.isContent(r,5)
+  File "E:\data\pythontestdata\pn1\tests\test_login.py", line 23, in isContent
+    self.assertTrue(self.p.isContent(row=row,str2=r.text))
+AssertionError: False is not true
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
-    <tr class='passClass'>
+    <tr class='failClass'>
         <td>test_user.UserTest</td>
-        <td>2</td>
-        <td>2</td>
+        <td>6</td>
+        <td>3</td>
+        <td>3</td>
         <td>0</td>
-        <td>0</td>
-        <td><a href="javascript:showClassDetail('c3',2)">详情</a></td>
+        <td><a href="javascript:showClassDetail('c3',6)">详情</a></td>
         <td>&nbsp;</td>
     </tr>
 
-<tr id='pt3.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_user_01: 获取个人信息</div></td>
-    <td colspan='5' align='center'>成功</td>
+<tr id='ft3.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_user_01: 获取个人信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        失败</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <pre>
+        ft3.1: Traceback (most recent call last):
+  File "E:\data\pythontestdata\pn1\tests\test_user.py", line 26, in test_user_01
+    self.isContent(r,12)
+  File "E:\data\pythontestdata\pn1\tests\test_user.py", line 21, in isContent
+    self.assertTrue(self.p.isContent(row=row,str2=r.text))
+AssertionError: False is not true
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='pt3.2' class='hiddenRow'>
@@ -333,11 +409,69 @@
     <td colspan='5' align='center'>成功</td>
 </tr>
 
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_user_03: 获取我的订单列表</div></td>
+    <td colspan='5' align='center'>成功</td>
+</tr>
+
+<tr id='ft3.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_user_04: 订单详情页验证</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.4')" >
+        失败</a>
+
+    <div id='div_ft3.4' class="popup_window">
+        <pre>
+        ft3.4: Traceback (most recent call last):
+  File "E:\data\pythontestdata\pn1\tests\test_user.py", line 48, in test_user_04
+    self.isContent(r,15)
+  File "E:\data\pythontestdata\pn1\tests\test_user.py", line 21, in isContent
+    self.assertTrue(self.p.isContent(row=row,str2=r.text))
+AssertionError: False is not true
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.5' class='none'>
+    <td class='failCase'><div class='testcase'>test_user_05: 电子票夹验证</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.5')" >
+        失败</a>
+
+    <div id='div_ft3.5' class="popup_window">
+        <pre>
+        ft3.5: Traceback (most recent call last):
+  File "E:\data\pythontestdata\pn1\tests\test_user.py", line 54, in test_user_05
+    self.isContent(r,16)
+  File "E:\data\pythontestdata\pn1\tests\test_user.py", line 21, in isContent
+    self.assertTrue(self.p.isContent(row=row,str2=r.text))
+AssertionError: False is not true
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_user_06: 我的卡包列表验证</div></td>
+    <td colspan='5' align='center'>成功</td>
+</tr>
+
         <tr id='total_row'>
             <td>总计</td>
-            <td>13</td>
-            <td>13</td>
-            <td>0</td>
+            <td>17</td>
+            <td>11</td>
+            <td>6</td>
             <td>0</td>
             <td>&nbsp;</td>
             <th>&nbsp;</th>
@@ -373,7 +507,7 @@
             xAxis: [
                 {
                     type: 'category',
-                    data: [' 第一次','第二次','第三次','第四次','第五次','第六次','第七次','第八次','第九次','第十次'],
+                    data: ['测试用例执行情况'],
                     axisPointer: {
                         type: 'shadow'
                     }
@@ -405,13 +539,13 @@
                 {
                     name:'成功',
                     type:'bar',
-                    data:[13]
+                    data:[11]
                 //data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
                 },
                 {
                     name:'失败',
                     type:'bar',
-                    data:[0]
+                    data:[6]
                 },
                 {
                     name:'错误',
@@ -423,7 +557,7 @@
             ]
         };
         myChartline.setOption(optionline);
-        console.log(0,13,0)
+        console.log(6,11,0)
             // 基于准备好的dom，初始化echarts实例
             var myChart = echarts.init(document.getElementById('chart'));
 
@@ -450,8 +584,8 @@
                         radius : '60%',
                         center: ['50%', '60%'],
                         data:[
-                            {value:13, name:'成功'},
-                            {value:0, name:'失败'},
+                            {value:11, name:'成功'},
+                            {value:6, name:'失败'},
                             {value:0, name:'错误'}
                         ],
                         itemStyle: {
